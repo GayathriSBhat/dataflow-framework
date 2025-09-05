@@ -1,0 +1,22 @@
+[project]
+name = "abstraction-level-3"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "gayathri bhat", email = "gayathribhatindia@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "rich>=14.1.0",
+]
+
+[project.scripts]
+abstraction-level-3 = "abstraction_level_3:main"
+
+[build-system]
+requires = ["uv_build>=0.8.15,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv]
+publish-url = "https://test.pypi.org/legacy/"
