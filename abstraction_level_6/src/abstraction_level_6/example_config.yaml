@@ -1,0 +1,11 @@
+nodes:
+  - tag: start
+    type: routing_engine.processors.start.StartProcessor
+  - tag: error
+    type: routing_engine.processors.filters.OnlyError
+  - tag: warn
+    type: routing_engine.processors.filters.OnlyWarn
+  - tag: general
+    type: routing_engine.processors.formatters.SnakeCase
+  - tag: end
+    type: routing_engine.processors.output.TerminalOutput

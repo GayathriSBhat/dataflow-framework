@@ -1,0 +1,21 @@
+[project]
+name = "abstraction-level-6"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "gayathri bhat", email = "gayathribhatindia@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "matplotlib>=3.10.6",
+    "networkx>=3.4.2",
+    "pyyaml>=6.0.2",
+]
+
+[project.scripts]
+abstraction-level-6 = "abstraction_level_6:main"
+
+[build-system]
+requires = ["uv_build>=0.8.15,<0.9.0"]
+build-backend = "uv_build"
