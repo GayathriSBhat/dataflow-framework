@@ -1,0 +1,8 @@
+INFO: Application started successfully
+WARNING: disk usage high
+ERROR: database unreachable
+INFO: user logged in
+ERROR: failed to connect to cache
+WARNING: memory usage above threshold
+DEBUG: heartbeat check ok
+INFO: shutdown initiated

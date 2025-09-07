@@ -1,0 +1,31 @@
+pipeline:
+  nodes:
+    trim: processors.trim.trim_processor
+    tagger: processors.tagger.tag_lines
+    counter: processors.counter.Counter
+    errors_archive: processors.archive.archive_errors
+    warnings_tally: processors.tally.Tally
+    formatter: processors.formatter.simple_formatter
+    printer: processors.printer.printer
+
+  routes:
+    trim:
+      default: [tagger]
+
+    tagger:
+      error: [counter, errors_archive]
+      warn: [warnings_tally]
+      general: [formatter]
+
+    counter:
+      counted: [printer]
+
+    warnings_tally:
+      tally: [printer]
+
+    formatter:
+      print: [printer]
+
+    errors_archive: {}
+
+  entry: trim

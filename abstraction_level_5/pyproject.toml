@@ -1,0 +1,20 @@
+[project]
+name = "abstraction-level-5"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "gayathri bhat", email = "gayathribhatindia@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "pyyaml>=6.0.2",
+    "rich>=14.1.0",
+]
+
+[project.scripts]
+abstraction-level-5 = "abstraction_level_5:main"
+
+[build-system]
+requires = ["uv_build>=0.8.15,<0.9.0"]
+build-backend = "uv_build"
