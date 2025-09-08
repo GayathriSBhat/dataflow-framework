@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Observability Engine — Dashboard</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <link rel="icon" href="/static/favicon.svg" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Observability Engine</div>
+    <div class="controls">
+      <label title="Auto refresh">
+        <input id="autoRefresh" type="checkbox" checked /> Auto
+      </label>
+      Interval: <input id="interval" type="number" min="1" value="3" class="small" />s
+      Trace limit: <input id="traceLimit" type="number" min="1" value="50" class="small" />
+      <button id="refreshBtn">Refresh</button>
+    </div>
+  </header>
+
+  <main class="grid">
+    <!-- Left column: stats + errors -->
+    <div class="left-column">
+      <section class="card" id="statsCard">
+        <h2>Processor Stats</h2>
+        <div class="meta">Last updated: <span id="statsUpdated">—</span></div>
+        <div class="table-wrapper">
+          <table id="statsTable" class="stats-table" aria-describedby="stats-desc">
+            <caption id="stats-desc" style="display:none">Per-processor metrics</caption>
+            <thead>
+              <tr><th>Processor</th><th>Count</th><th>Avg time (ms)</th><th>Errors</th><th>Profile</th></tr>
+            </thead>
+            <tbody id="statsBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card" id="errorsCard">
+        <h2>Recent Errors <span id="errorsBadge" class="err-badge" hidden></span></h2>
+        <div class="meta">Showing <span id="errorsCount">—</span></div>
+        <div id="errorsEmpty" class="empty-state small-meta">No recent errors.</div>
+        <ul id="errorsList" class="list" aria-live="polite"></ul>
+      </section>
+    </div>
+
+    <!-- Right column: traces -->
+    <div class="right-column">
+      <section class="card" id="traceCard">
+        <h2>Recent Traces</h2>
+        <div class="meta" id="traceMeta"></div>
+        <div class="toolbar">
+          <input id="traceSearch" placeholder="Search line_id or processor" />
+          <button id="loadMore">Load more</button>
+        </div>
+        <div id="traceWarning" class="warning" hidden></div>
+        <div id="tracesList" class="list"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <small>
+      Endpoints: 
+      <a href="/stats">/stats</a> • 
+      <a href="/trace">/trace</a> • 
+      <a href="/errors">/errors</a> • 
+      <a href="/docs">/docs</a>
+    </small>
+  </footer>
+
+  <script src="/static/app.js" type="module"></script>
+</body>
+</html>

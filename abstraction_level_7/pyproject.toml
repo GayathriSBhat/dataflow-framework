@@ -1,0 +1,22 @@
+[project]
+name = "abstraction-level-7"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "gayathri bhat", email = "gayathribhatindia@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.116.1",
+    "python-dotenv>=1.1.1",
+    "typer[all]>=0.17.4",
+    "uvicorn[standard]>=0.35.0",
+]
+
+[project.scripts]
+abstraction-level-7 = "abstraction_level_7:main"
+
+[build-system]
+requires = ["uv_build>=0.8.15,<0.9.0"]
+build-backend = "uv_build"
